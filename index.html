@@ -1,1 +1,60 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#101827"/><meta name="description" content="Remove image backgrounds for free in your browser. Export transparent PNGs without uploading your image."/><title>Free AI Background Remover</title></head><body><header class="topbar"><a class="brand" href="/">✦ ClearCut</a><span class="privacy-pill">Private · On-device processing</span></header><main class="shell"><section class="intro"><p class="eyebrow">FREE AI BACKGROUND REMOVER</p><h1>Make your subject <span>stand out.</span></h1><p class="subhead">Remove image backgrounds in your browser. No account, no upload, no watermark.</p></section><section class="workspace"><div class="upload-panel" id="drop-zone"><div class="upload-icon">↑</div><h2>Drop an image here</h2><p>or choose a file from your device</p><label class="file-button" for="file-input">Choose image</label><input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden/><small>PNG, JPG or WebP · 15 MB recommended limit</small></div><div class="preview-grid" id="preview-grid" hidden><div class="preview-card"><div class="preview-heading">Original</div><div class="preview-stage"><img id="original-preview" alt="Original image"/></div></div><div class="preview-card"><div class="preview-heading">Background removed</div><div class="preview-stage checker"><img id="result-preview" alt="Transparent PNG result"/></div></div></div><div class="actions"><button class="primary-button" id="remove-button" disabled>Remove background</button><a class="download-button disabled" id="download-button" aria-disabled="true">Download PNG</a><button class="reset-button" id="reset-button" hidden>Start over</button></div><div class="progress-wrap" id="progress-wrap" hidden><div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div><p id="status" role="status">Preparing…</p></div><p class="privacy-note">🔒 Your image is processed on your device and is not sent to our server.</p></section><section class="how"><h2>Simple, private, free.</h2><div class="features"><article><b>01</b><h3>Choose an image</h3><p>Select a photo from your device.</p></article><article><b>02</b><h3>AI does the work</h3><p>Your browser runs the background-removal model.</p></article><article><b>03</b><h3>Save as PNG</h3><p>Download your image with a transparent background.</p></article></div></section><footer><span>ClearCut · Free browser-based tool</span><span id="api-status">Ready to process locally</span></footer></main><script type="module" src="/src/main.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#101827" />
+<meta name="description" content="Remove an image background free with AI. Create a transparent PNG in your browser—no account, no watermark, and no image upload." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="keywords" content="free AI background remover, remove background from image, transparent PNG maker, remove image background online, photo background remover, background eraser" />
+<meta property="og:type" content="website" /><meta property="og:title" content="Free AI Background Remover – Transparent PNG in Your Browser" />
+<meta property="og:description" content="Remove image backgrounds with AI for free. Private, browser-based processing and transparent PNG downloads." />
+<meta property="og:site_name" content="ClearCut" /><meta name="twitter:card" content="summary_large_image" />
+<title>Free AI Background Remover – Make Transparent PNGs Online | ClearCut</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://staticimgly.com" crossorigin /><link rel="dns-prefetch" href="//staticimgly.com" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"ClearCut Free AI Background Remover","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires a modern browser with WebAssembly support","description":"A free browser-based AI tool that removes image backgrounds and exports transparent PNG files. Images are processed on the user's device.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["AI background removal","Transparent PNG export","On-device image processing","No account required"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I remove a background from an image for free?","acceptedAnswer":{"@type":"Answer","text":"Choose a PNG, JPG, or WebP image, select Fast or High detail, and click Remove background. When processing finishes, download the transparent PNG."}},
+{"@type":"Question","name":"Are my photos uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Background removal runs in your browser. The selected image is processed on your device and is not sent to the ClearCut server."}},
+{"@type":"Question","name":"Why is the first background removal slower?","acceptedAnswer":{"@type":"Answer","text":"The browser must download and initialize the AI model and runtime the first time. The browser caches these assets, so later visits can load faster."}},
+{"@type":"Question","name":"How do I download an image with a transparent background?","acceptedAnswer":{"@type":"Answer","text":"After the background is removed, click Download PNG. PNG preserves transparency, unlike JPEG."}},
+{"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"ClearCut accepts PNG, JPG, and WebP images up to 15 MB."}}
+]}]}
+</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/" aria-label="ClearCut home">✦ ClearCut</a><span class="privacy-pill">Private · On-device AI</span></header>
+<main class="shell">
+<section class="intro"><p class="eyebrow">FREE AI BACKGROUND REMOVER</p><h1>Remove image backgrounds.<br /><span>Keep what matters.</span></h1><p class="subhead">Create a clean transparent PNG in seconds. No account, no watermark, and your image stays on your device.</p></section>
+<section class="workspace" aria-label="AI background removal tool">
+<div class="upload-panel" id="drop-zone"><div class="upload-icon" aria-hidden="true">↑</div><h2>Drop your image here</h2><p>or select a photo from your device</p><label class="file-button" for="file-input">Choose an image</label><input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden /><small>PNG, JPG or WebP · Maximum file size 15 MB</small></div>
+<div class="preview-grid" id="preview-grid" hidden><div class="preview-card"><div class="preview-heading">Original image</div><div class="preview-stage"><img id="original-preview" alt="Original photo before background removal" /></div></div><div class="preview-card"><div class="preview-heading">Transparent result</div><div class="preview-stage checker"><img id="result-preview" alt="Image preview with its background removed" /></div></div></div>
+<div class="mode-row"><label for="model-select">Processing mode</label><select id="model-select"><option value="isnet_quint8">Fast · smaller AI model</option><option value="isnet_fp16">High detail · larger AI model</option></select></div>
+<div class="actions"><button class="primary-button" id="remove-button" disabled>Remove background</button><a class="download-button disabled" id="download-button" aria-disabled="true">Download transparent PNG</a><button class="reset-button" id="reset-button" hidden>Start over</button></div>
+<div class="progress-wrap" id="progress-wrap" hidden aria-live="polite"><div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div><p id="status" role="status"></p></div>
+<p class="privacy-note">🔒 Your photo is processed locally in your browser. It is not uploaded to our server.</p><p class="sample-note" id="sample-note"></p>
+</section>
+<section class="how"><h2>Remove a photo background in three steps</h2><div class="features">
+<article><b>01</b><h3>Upload your photo</h3><p>Choose a JPG, PNG, or WebP image from your phone, tablet, or computer.</p></article>
+<article><b>02</b><h3>Let AI isolate the subject</h3><p>Our in-browser AI identifies the foreground and separates it from the background.</p></article>
+<article><b>03</b><h3>Download a transparent PNG</h3><p>Save your cutout for product listings, profile photos, presentations, and designs.</p></article>
+</div></section>
+<section class="seo-content"><h2>Free online AI background remover</h2>
+<p>ClearCut helps you <strong>remove a background from an image</strong> without installing software or creating an account. Use the free AI background remover to make transparent PNG images for ecommerce product photos, social media graphics, profile pictures, presentations, and personal projects. Upload a photo, let the AI detect the main subject, and download the result with transparency preserved.</p>
+<h3>Made for product photos, portraits, and everyday images</h3>
+<p>A clean cutout can make a product stand out in an online store, prepare a portrait for a profile picture, or help you place an object into a new design. For best results, use a clear photo with good lighting and visible separation between the subject and its background. Fine hair, transparent glass, motion blur, and low-contrast edges can be challenging for any automated background remover.</p>
+<h3>Private background removal in your browser</h3>
+<p>Image processing runs on your device using browser-based AI. Your selected image is not sent to our Worker API. The first use may take longer while the model files download; your browser can cache these files for subsequent sessions. Fast mode uses a smaller model to reduce download and memory requirements. High detail mode uses a larger model and may take longer or require more device memory.</p></section>
+<section class="faq" aria-labelledby="faq-title"><h2 id="faq-title">Frequently asked questions</h2>
+<details><summary>How can I remove a background from an image for free?</summary><p>Choose a PNG, JPG, or WebP image, select a processing mode, and click Remove background. Download the transparent PNG when the result is ready.</p></details>
+<details><summary>Does ClearCut upload or store my photo?</summary><p>No. The AI background removal runs in your browser. Your image is processed on your device and is not sent to the ClearCut Worker API.</p></details>
+<details><summary>Why does the first background removal take longer?</summary><p>Your browser needs to download and initialize the AI model and runtime the first time. Those assets are cached by the browser, so later runs may be faster.</p></details>
+<details><summary>Can I make a transparent PNG?</summary><p>Yes. The result is exported as a PNG, which supports transparent pixels. JPEG does not preserve transparency.</p></details>
+<details><summary>What image formats and sizes are supported?</summary><p>PNG, JPG, and WebP images up to 15 MB are supported. Very large images may be resized before processing to help prevent browser memory errors.</p></details>
+<details><summary>Why did background removal fail?</summary><p>Large images, low device memory, browser restrictions, and interrupted model downloads can cause failures. Try Fast mode, use a smaller image, close other tabs, and retry in an up-to-date browser.</p></details>
+</section>
+<footer><span>ClearCut · Free browser-based AI background remover</span><span id="api-status">Ready for private on-device processing</span></footer>
+</main><script type="module" src="/src/main.js"></script>
+</body></html>
