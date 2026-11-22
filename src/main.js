@@ -1,4 +1,4 @@
-import removeBackground from "@imgly/background-removal";
+import { removeBackground } from "@imgly/background-removal";
 import "./style.css";
 const $=id=>document.getElementById(id),input=$("file-input"),drop=$("drop-zone"),run=$("remove-button"),download=$("download-button"),reset=$("reset-button"),grid=$("preview-grid"),original=$("original-preview"),result=$("result-preview"),progress=$("progress-wrap"),bar=$("progress-bar"),status=$("status");
 let file=null,resultUrl=null,originalUrl=null,busy=false;
