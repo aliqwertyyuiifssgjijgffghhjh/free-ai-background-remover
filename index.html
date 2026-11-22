@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101827" />
+    <meta name="description" content="Remove image backgrounds for free in your browser. Export transparent PNGs without uploading your image." />
+    <title>Free AI Background Remover</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar"><a class="brand" href="/" aria-label="Background Remover home"><span class="brand-mark">✦</span> ClearCut</a><span class="privacy-pill">Private · On-device processing</span></header>
+      <main class="shell">
+        <section class="intro">
+          <p class="eyebrow">FREE AI BACKGROUND REMOVER</p>
+          <h1>Make your subject <span>stand out.</span></h1>
+          <p class="subhead">Remove image backgrounds in your browser. No account, no upload, no watermark.</p>
+        </section>
+        <section class="workspace" aria-label="Background removal tool">
+          <div class="upload-panel" id="drop-zone">
+            <div class="upload-icon">↑</div>
+            <h2>Drop an image here</h2>
+            <p>or choose a file from your device</p>
+            <label class="file-button" for="file-input">Choose image</label>
+            <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+            <small>PNG, JPG or WebP · Up to 15 MB recommended</small>
+          </div>
+          <div class="preview-grid" id="preview-grid" hidden>
+            <div class="preview-card"><div class="preview-heading">Original</div><div class="preview-stage"><img id="original-preview" alt="Original image preview" /></div></div>
+            <div class="preview-card"><div class="preview-heading">Background removed</div><div class="preview-stage checker"><img id="result-preview" alt="Transparent background result" /></div></div>
+          </div>
+          <div class="actions">
+            <button class="primary-button" id="remove-button" disabled>Remove background</button>
+            <a class="download-button disabled" id="download-button" aria-disabled="true">Download PNG</a>
+            <button class="reset-button" id="reset-button" hidden>Start over</button>
+          </div>
+          <div class="progress-wrap" id="progress-wrap" hidden><div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div><p id="status" role="status">Preparing…</p></div>
+          <p class="privacy-note">🔒 Your image is processed on your device and is not sent to our server.</p>
+        </section>
+        <section class="how"><h2>Simple, private, free.</h2><div class="features"><article><b>01</b><h3>Choose an image</h3><p>Select a photo from your device.</p></article><article><b>02</b><h3>AI does the work</h3><p>Your browser runs the background-removal model.</p></article><article><b>03</b><h3>Save as PNG</h3><p>Download your image with a transparent background.</p></article></div></section>
+        <footer><span>ClearCut · Free browser-based tool</span><span id="api-status">Ready to process locally</span></footer>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
