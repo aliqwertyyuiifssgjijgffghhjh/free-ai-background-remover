@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://free-ai-background-remover.telephonenumber-3574355.workers.dev/sitemap.xml
