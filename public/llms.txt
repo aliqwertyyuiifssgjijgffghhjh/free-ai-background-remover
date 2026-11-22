@@ -1,0 +1,29 @@
+# ClearCut — Free AI Background Remover
+
+> ClearCut is a free online AI background remover that creates transparent PNG images from PNG, JPG, and WebP uploads.
+
+## Website
+- Homepage: https://free-ai-background-remover.telephonenumber-3574355.workers.dev/
+- Sitemap: https://free-ai-background-remover.telephonenumber-3574355.workers.dev/sitemap.xml
+- Robots: https://free-ai-background-remover.telephonenumber-3574355.workers.dev/robots.txt
+
+## What the tool does
+- Removes image backgrounds and exports transparent PNG files.
+- Supports PNG, JPEG, and WebP input files up to 15 MB.
+- Offers Fast and High detail browser-AI model options.
+- Tries Cloudflare server-side image segmentation first, then uses browser-based AI as a fallback when server processing is unavailable.
+
+## Privacy and processing
+When Cloudflare server processing is available, the selected image is sent to Cloudflare for processing. If server processing is unavailable, the browser-based fallback processes the image locally. The Worker does not store uploaded source or result images.
+
+## Usage
+1. Open the homepage.
+2. Choose or drop a PNG, JPG, or WebP image (maximum 15 MB).
+3. Select the desired AI quality.
+4. Choose “Remove background”.
+5. Download the transparent PNG result.
+
+## Important notes
+- The first browser-AI run may take longer because model assets need to download.
+- Results depend on image quality, subject/background contrast, network conditions, and device capabilities.
+- The website currently provides a single-page background-removal tool; there are no separate editorial or documentation sections.
