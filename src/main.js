@@ -37,11 +37,11 @@ async function prepareImage(source) {
     const canvas = document.createElement("canvas");
     canvas.width = Math.max(1, Math.round(bitmap.width * scale));
     canvas.height = Math.max(1, Math.round(bitmap.height * scale));
-    const context = canvas.getContext("2d", { alpha: false });
+    const context = canvas.getContext("2d", { alpha: true });
     if (!context) throw new Error("Your browser could not prepare this image.");
     context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
     const resized = await new Promise((resolve, reject) => {
-      canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("Image optimization failed.")), "image/jpeg", 0.94);
+      canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("Image optimization failed.")), "image/png");
     });
     setStatus("Large image optimized to protect your device memory.", 4);
     return resized;
