@@ -1,4 +1,3 @@
-import { removeBackground } from "@imgly/background-removal";
 import "./style.css";
 
 const $ = (id) => document.getElementById(id);
@@ -7,7 +6,15 @@ const download = $("download-button"), reset = $("reset-button"), grid = $("prev
 const original = $("original-preview"), result = $("result-preview"), progress = $("progress-wrap");
 const bar = $("progress-bar"), status = $("status"), modelSelect = $("model-select");
 const MAX_FILE_BYTES = 15 * 1024 * 1024, MAX_PIXELS = 18000000, MAX_EDGE = 3072;
-let file = null, resultUrl = null, originalUrl = null, busy = false;
+let file = null, resultUrl = null, originalUrl = null, busy = false, enginePromise = null;
+
+async function getEngine() {
+  if (!enginePromise) enginePromise = import("@imgly/background-removal").catch((error) => {
+    enginePromise = null;
+    throw error;
+  });
+  return enginePromise;
+}
 
 function setStatus(message, percent, state = "info") {
   status.textContent = message;
@@ -92,7 +99,10 @@ run.addEventListener("click", async () => {
   clearResult();
   setStatus("Preparing your image…", 3);
   try {
+    if (!("createImageBitmap" in window) || !("WebAssembly" in window)) throw new Error("Your browser does not support the image processing features required by this tool.");
     const source = await prepareImage(file);
+    setStatus("Loading the AI engine for this session…", 6);
+    const { removeBackground } = await getEngine();
     const model = modelSelect.value;
     setStatus(model === "isnet_quint8" ? "Loading the lightweight AI model. First run can take longer…" : "Loading the high-detail AI model. First run can take longer…", 8);
     const blob = await removeBackground(source, {
@@ -149,7 +159,7 @@ reset.addEventListener("click", () => {
   status.textContent = "";
   delete status.dataset.state;
 });
-$("sample-note").textContent = "Tip: the first run downloads AI assets. Your browser caches them for later visits.";
+$("sample-note").textContent = "The AI engine loads only when you start. First use downloads model files; your browser can cache them for next time.";
 const api = import.meta.env.VITE_API_BASE_URL;
 if (api) {
   fetch(api.replace(/\/$/, "") + "/api/health", { cache: "no-store" })
