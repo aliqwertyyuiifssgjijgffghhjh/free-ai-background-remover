@@ -4,7 +4,7 @@ const $ = (id) => document.getElementById(id);
 const input = $("file-input"), drop = $("drop-zone"), run = $("remove-button");
 const download = $("download-button"), reset = $("reset-button"), grid = $("preview-grid");
 const original = $("original-preview"), result = $("result-preview"), progress = $("progress-wrap");
-const bar = $("progress-bar"), status = $("status"), modelSelect = $("model-select");
+const bar = $("progress-bar"), status = $("status"), modelSelect = $("model-select"), percentLabel = $("progress-percent");
 const MAX_FILE_BYTES = 15 * 1024 * 1024, MAX_PIXELS = 18000000, MAX_EDGE = 3072;
 let file = null, resultUrl = null, originalUrl = null, busy = false, enginePromise = null;
 
@@ -19,7 +19,7 @@ async function getEngine() {
 function setStatus(message, percent, state = "info") {
   status.textContent = message;
   status.dataset.state = state;
-  if (percent !== undefined && percent !== null) bar.style.width = Math.max(0, Math.min(100, percent)) + "%";
+  if (percent !== undefined && percent !== null) { const value = Math.max(0, Math.min(100, percent)); bar.style.width = value + "%"; if (percentLabel) percentLabel.textContent = Math.round(value) + "%"; }
 }
 function clearResult() {
   if (resultUrl) URL.revokeObjectURL(resultUrl);
