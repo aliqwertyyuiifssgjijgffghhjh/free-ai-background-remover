@@ -73,6 +73,7 @@ function selectFile(candidate) {
     return;
   }
   file = candidate;
+  progress.hidden = true;
   clearPreview();
   originalUrl = URL.createObjectURL(candidate);
   original.src = originalUrl;
@@ -84,6 +85,13 @@ function selectFile(candidate) {
   progress.hidden = true;
 }
 input.addEventListener("change", (event) => selectFile(event.target.files?.[0]));
+drop.addEventListener("keydown", (event) => {
+  if (event.target !== drop || busy) return;
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    input.click();
+  }
+});
 ["dragenter", "dragover"].forEach((name) => drop.addEventListener(name, (event) => {
   event.preventDefault();
   if (!busy) drop.classList.add("dragging");
@@ -211,7 +219,7 @@ fetch((apiBase || window.location.origin) + "/api/health", { cache: "no-store" }
     if (!response.ok) throw new Error("API unavailable");
     const health = await response.json();
     $("api-status").textContent = health.serverRemovalReady
-      ? "Cloudflare AI ready · browser fallback available"
-      : "Browser AI ready · enable Cloudflare Images binding for server AI";
+      ? "Cloudflare server AI ready · browser fallback available"
+      : "Browser AI fallback ready · server AI not configured";
   })
   .catch(() => $("api-status").textContent = "Browser AI fallback available · server status unavailable");
